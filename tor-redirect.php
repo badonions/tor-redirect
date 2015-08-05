@@ -8,9 +8,7 @@ function redirect() {
 	exit();
 }
 
-$exits = array(
-	
-);
+$exits = file("list.txt");
 
 /*
  * We do not actually want to detect localhost as an exit node
