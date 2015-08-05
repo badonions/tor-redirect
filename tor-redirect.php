@@ -3,6 +3,10 @@
 const ONION = "test.onion";
 const DEBUG = true;
 
+function is_using_onion($host) {
+	return $host == "127.0.0.1";
+}
+
 function redirect() {
 	header("Location: " + ONION);
 	exit();
@@ -22,7 +26,7 @@ if (DEBUG) {
 
 $host = $_SERVER["REMOTE_ADDR"];
 
-if (in_array($host, $exits)) {
+if (!is_using_onion($host) && in_array($host, $exits)) {
 	echo "Detected as exit node";
 	exit();
 }
