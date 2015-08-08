@@ -1,15 +1,22 @@
 <?php
 
-const ONION = "test.onion";
+const ONION = "http://test.onion/";
 const DEBUG = true;
 
+/**
+ * If user is using onion
+ * @param $host
+ * @return boolean
+ */
 function is_using_onion($host) {
 	return $host == "127.0.0.1";
 }
 
+/**
+ * Send the location header
+ */
 function redirect() {
-	header("Location: " + ONION);
-	exit();
+	header("Location: " . ONION);
 }
 
 $exits = file("list.txt");
@@ -26,9 +33,8 @@ if (DEBUG) {
 
 $host = $_SERVER["REMOTE_ADDR"];
 
-if (!is_using_onion($host) && in_array($host, $exits)) {
-	echo "Detected as exit node";
-	exit();
+if (!is_using_onion($host) && in_array($host . "\n", $exits)) {
+	redirect();
 }
 
 ?>
