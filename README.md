@@ -12,4 +12,6 @@ Add
 include_once "tor-redirect.php";
 ```
 
-to the top of all your files which should do this check
+to the top of all your files which should do this check.
+
+Make sure to actually add it to the top of the file, since you cannot change location header if anything on the page has been sent to the user
