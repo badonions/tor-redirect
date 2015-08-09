@@ -23,7 +23,7 @@ Add getlist.sh to crontab to schedule fetching of exit-node ips
 crontab -e
 ```
 
-Fetch exit-node ips 00.00 every day. 
+Add to file to fetch exit-node ips 00.00 every day
 
 ```bash
 00 00 * * * /path/to/getlist.sh
