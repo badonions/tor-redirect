@@ -19,7 +19,7 @@ function redirect() {
 	header("Location: " . ONION);
 }
 
-$exits = file("list.txt");
+$exits = file("list.txt", FILE_IGNORE_NEW_LINES);
 
 /*
  * We do not actually want to detect localhost as an exit node
@@ -33,7 +33,7 @@ if (DEBUG) {
 
 $host = $_SERVER["REMOTE_ADDR"];
 
-if (!is_using_onion($host) && in_array($host . "\n", $exits)) {
+if (!is_using_onion($host) && in_array($host, $exits)) {
 	redirect();
 }
 
