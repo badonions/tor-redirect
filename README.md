@@ -16,6 +16,7 @@ to the top of all your files which should do this check.
 
 Make sure to actually add it to the top of the file, since you cannot change location header if anything on the page has been sent to the user.
 
+## Automatically update exit node list
 
 Add getlist.sh to crontab to schedule fetching of exit-node ips
 
